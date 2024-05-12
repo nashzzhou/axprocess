@@ -736,5 +736,6 @@ impl Process {
             .unwrap()
             .signal_set
             .find_signal()
+            .map_or_else(|| current_task.check_pending_signal(), Some)
     }
 }
