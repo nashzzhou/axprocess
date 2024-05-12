@@ -350,3 +350,8 @@ pub fn send_signal_to_thread(tid: isize, signum: isize) -> AxResult<()> {
     }
     Ok(())
 }
+
+/// Whether the current process has signals pending
+pub fn current_have_signals() -> bool {
+    current_process().have_signals().is_some()
+}
